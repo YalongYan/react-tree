@@ -1,0 +1,160 @@
+.tree{
+  text-align: left;
+  .childNode{
+    padding-left: 20px;
+    position: relative;
+    background-color: #ffffff;
+    z-index: 1;
+    .checkBox{
+      position: absolute;
+      width:16px;
+      left: 20px;
+      top: 0;
+      z-index: 2;
+      margin: 7px 10px 0;
+      &:hover{
+        cursor: pointer;
+        border-color: #5bb976;
+      }
+      height:16px;
+      box-sizing: border-box;
+      border:1px solid rgb(210,210,210);
+      vertical-align: text-bottom;
+      font-size: 0;
+      border-radius: 2px;
+      cursor: pointer;
+      &.checked {
+        border: 0;
+        background: url(../images/icon-check-green.png) no-repeat center center;
+        background-size: 100% 100%;
+        background: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/icon-check-green.png',sizingMethod='scale')\9;
+      }
+      &.partChecked {
+        border: 0;
+        background: url(../images/part-checked.png) no-repeat center center;
+        background-size: 100% 100%;
+        background: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/part-checked.png',sizingMethod='scale')\9;
+      }
+    }
+    .nodeName{
+      padding-left: 36px;
+      font-size: 14px;
+      color: #333333;
+      white-space: nowrap;
+      overflow: hidden;
+      line-height: 30px;
+      height: 30px;
+      text-overflow: ellipsis;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding-right: 10px;
+      &.active{
+        background-color: #DEF1FF;
+      }
+      &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+    &.open {
+      .openNode{
+        background: url(../images/department-close.png) no-repeat center center;
+        background-size: 100% 100%;
+        background: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/department-close.png',sizingMethod='scale')\9;
+      }
+      .childList{
+        display: block;
+      }
+    }
+    &.close {
+      .openNode{
+        background: url(../images/depart-open.png) no-repeat center center;
+        background-size: 100% 100%;
+        background: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/depart-open.png',sizingMethod='scale')\9;
+      }
+      .childList {
+        display: none;
+      }
+    }
+    .fileBox{
+      position: absolute;
+      width:16px;
+      left: 20px;
+      top: 0;
+      margin: 5px 10px 0;
+      &:hover{
+        cursor: pointer;
+      }
+      z-index: 2;
+      img{
+        width: 16px;
+      }
+    }
+    &:before {
+      position: absolute;
+      left: -13px;
+      top: 15px;
+      width: 20px;
+      height: 100%;
+      border-top: 1px solid #CFCFCF;
+      border-right: 1px solid #CFCFCF;
+      content: '';
+      z-index: 1;
+    }
+    &:after{
+      position: absolute;
+      bottom: -12px;
+      left: 7px;
+      width: 1px;
+      height: 30px;
+      z-index: 3;
+      background-color: #ffffff;
+      content: '';
+    }
+    &.parentNode {
+      &:before{
+        border-top: none;
+      }
+    }
+    .openNode{
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    &.noChildren{
+      .openNode{
+        width: 10px;
+        height: 10px;
+        top: 10px;
+        &:hover{
+          cursor: default;
+        }
+        left: 7px;
+        background: url(../images/no-child.png) no-repeat center center;
+        background-size: 100% 100%;
+        background: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/no-child.png',sizingMethod='scale')\9;
+      }
+    }
+    .lastNode{
+      position: absolute;
+      bottom: -15px;
+      left: -13px;
+      width: 1px;
+      height: 100%;
+      z-index: 4;
+      background-color: #ffffff;
+    }
+  }
+}

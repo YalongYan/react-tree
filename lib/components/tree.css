@@ -1,0 +1,152 @@
+.tree {
+  text-align: left;
+}
+.tree .childNode {
+  padding-left: 20px;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 1;
+}
+.tree .childNode .checkBox {
+  position: absolute;
+  width: 16px;
+  left: 20px;
+  top: 0;
+  z-index: 2;
+  margin: 7px 10px 0;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid #d2d2d2;
+  vertical-align: text-bottom;
+  font-size: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.tree .childNode .checkBox:hover {
+  cursor: pointer;
+  border-color: #5bb976;
+}
+.tree .childNode .checkBox.checked {
+  border: 0;
+  background: url(../images/icon-check-green.png) no-repeat center center;
+  background-size: 100% 100%;
+  background: none\9;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/icon-check-green.png', sizingMethod='scale') \9;
+}
+.tree .childNode .checkBox.partChecked {
+  border: 0;
+  background: url(../images/part-checked.png) no-repeat center center;
+  background-size: 100% 100%;
+  background: none\9;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/part-checked.png', sizingMethod='scale') \9;
+}
+.tree .childNode .nodeName {
+  padding-left: 36px;
+  font-size: 14px;
+  color: #333333;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 30px;
+  height: 30px;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-right: 10px;
+}
+.tree .childNode .nodeName.active {
+  background-color: #DEF1FF;
+}
+.tree .childNode .nodeName:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.tree .childNode.open .openNode {
+  background: url(../images/department-close.png) no-repeat center center;
+  background-size: 100% 100%;
+  background: none\9;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/department-close.png', sizingMethod='scale') \9;
+}
+.tree .childNode.open .childList {
+  display: block;
+}
+.tree .childNode.close .openNode {
+  background: url(../images/depart-open.png) no-repeat center center;
+  background-size: 100% 100%;
+  background: none\9;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/depart-open.png', sizingMethod='scale') \9;
+}
+.tree .childNode.close .childList {
+  display: none;
+}
+.tree .childNode .fileBox {
+  position: absolute;
+  width: 16px;
+  left: 20px;
+  top: 0;
+  margin: 5px 10px 0;
+  z-index: 2;
+}
+.tree .childNode .fileBox:hover {
+  cursor: pointer;
+}
+.tree .childNode .fileBox img {
+  width: 16px;
+}
+.tree .childNode:before {
+  position: absolute;
+  left: -13px;
+  top: 15px;
+  width: 20px;
+  height: 100%;
+  border-top: 1px solid #CFCFCF;
+  border-right: 1px solid #CFCFCF;
+  content: '';
+  z-index: 1;
+}
+.tree .childNode:after {
+  position: absolute;
+  bottom: -12px;
+  left: 7px;
+  width: 1px;
+  height: 30px;
+  z-index: 3;
+  background-color: #ffffff;
+  content: '';
+}
+.tree .childNode.parentNode:before {
+  border-top: none;
+}
+.tree .childNode .openNode {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+}
+.tree .childNode .openNode:hover {
+  cursor: pointer;
+}
+.tree .childNode.noChildren .openNode {
+  width: 10px;
+  height: 10px;
+  top: 10px;
+  left: 7px;
+  background: url(../images/no-child.png) no-repeat center center;
+  background-size: 100% 100%;
+  background: none\9;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./images/no-child.png', sizingMethod='scale') \9;
+}
+.tree .childNode.noChildren .openNode:hover {
+  cursor: default;
+}
+.tree .childNode .lastNode {
+  position: absolute;
+  bottom: -15px;
+  left: -13px;
+  width: 1px;
+  height: 100%;
+  z-index: 4;
+  background-color: #ffffff;
+}
