@@ -15,4 +15,5 @@ reactDOM.render(
       config={ config }
       treeData={ treeData }
       selectChange={(data) => selectChange(data)}
-      nodeClick={(data) => nodeClick(data)} />, document.getElementById('react-tree'))
+      nodeClick={(data) => nodeClick(data)} />,
+    document.getElementById('react-tree'))

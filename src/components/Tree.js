@@ -5,6 +5,7 @@ import Stack from '../utils/util';
 class Tree extends Component {
   constructor(props) {
     super(props)
+    // 数的渲染用的是 treeData， treeArray， treeObj 是把treeData 的数据结构调整了下，由于浅复制的存在，修改任意一个，其他数据也会变
     this.state = {
       treeData: {},
       treeArray: [],
@@ -23,8 +24,8 @@ class Tree extends Component {
       0: ''
     }
   }
-
   componentWillMount() {
+    // 区分数数组和对象格式的数据
     if (this.props.config.type.toLowerCase() === 'tree') {
       this.setState({
         treeData: this.props.treeData,
@@ -44,6 +45,11 @@ class Tree extends Component {
     } else {
       this.factoryTreeData()
     }
+    // 浅复制
+    setTimeout(() => {
+      this.state.treeData.children[2].label = '我是浅复制导致的'
+      this.forceUpdate()
+    }, 4000)
   }
 
   componentDidUpdate() {
@@ -111,7 +117,6 @@ class Tree extends Component {
   }
 
   selectNode (e, data) {
-    console.log('selectnode')
     if (e.stopPropagation) {
       e.stopPropagation();
     } else {
@@ -121,19 +126,20 @@ class Tree extends Component {
       selectVal: data[this.state.value]
     }, () => {
       if (this.props.nodeClick) {
-        this.props.nodeClick(data[this.state.value])
+        this.props.nodeClick(data)
+        // this.props.nodeClick(data[this.state.value])
       }
     })
   }
 
   selectCheckBox (e, data) {
-    console.log('selectCheckBox')
     if (e.stopPropagation) {
       e.stopPropagation();
     } else {
       window.event.cancelBubble = true;
     }
     let check = data.checked
+    // 下面有孩子 就把孩子都选上
     if (data.children && data.children.length) {
       let stack = new Stack();
       stack.push(data);
@@ -155,10 +161,12 @@ class Tree extends Component {
         data.checked = 2
       }
     }
+    // 有父节点 就把父节点也更新了
     if (data[this.state.parentId] || data[this.state.parentId] === 0) {
       this.updateParentNode(data)
     } else {
       this.forceUpdate()
+      // 组件外部传递了selectChange方法 就调用
       if (this.props.selectChange) {
         this.getCheckedItems()
       }
@@ -166,9 +174,10 @@ class Tree extends Component {
   }
 
   updateParentNode (data) {
-    console.log(this.state)
-    console.log(this.state.treeObj)
-    let par = this.state.treeObj[data[this.state.parentId]], checkLen = 0, partChecked = false;
+    // data[this.state.parentId] 只是为了获取所谓的id
+    let par = this.state.treeObj[data[this.state.parentId]],
+    checkLen = 0,
+    partChecked = false
     for (let i in par.children) {
       if (par.children[i].checked === 2) {
         checkLen++;
@@ -177,13 +186,17 @@ class Tree extends Component {
         break;
       }
     }
+    // 如果子孩子全都是选择的， 父节点就全选
     if (checkLen === par.children.length) {
       par.checked = 2
+      // 如果有子节点 不是全选的 父节点也不能全选
     } else if (partChecked || (checkLen < par.children.length && checkLen > 0)) {
       par.checked = 1;
     } else {
+      // 一个也没选择的
       par.checked = 0;
     }
+    // 如果还有父节点 解析往上更新
     if (this.state.treeObj[par[this.state.parentId]] || this.state.treeObj[par[this.state.parentId]] == 0) {
       this.updateParentNode(par)
     } else {
