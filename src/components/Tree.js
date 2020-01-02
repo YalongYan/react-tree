@@ -46,10 +46,10 @@ class Tree extends Component {
       this.factoryTreeData()
     }
     // 浅复制
-    setTimeout(() => {
-      this.state.treeData.children[2].label = '我是浅复制导致的'
-      this.forceUpdate()
-    }, 4000)
+    // setTimeout(() => {
+    //   this.state.treeData.children[2].label = '我是浅复制导致的'
+    //   this.forceUpdate()
+    // }, 4000)
   }
 
   componentDidUpdate() {
