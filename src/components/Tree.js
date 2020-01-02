@@ -46,9 +46,20 @@ class Tree extends Component {
     } else {
       this.factoryTreeData()
     }
-    // 浅复制
+    // 树形数据的浅复制
     // setTimeout(() => {
     //   this.state.treeData.children[2].label = '我是浅复制导致的'
+    //   this.forceUpdate()
+    // }, 4000)
+
+    // 数组数据的浅复制
+    // setTimeout(() => {
+    //   this.state.treeObj[2].children.push({
+    //     id: 22,
+    //     label: "aaaaaaaaaa",
+    //     pid: 2,
+    //     value: 22
+    //   })
     //   this.forceUpdate()
     // }, 4000)
   }
@@ -61,7 +72,9 @@ class Tree extends Component {
 
   }
 
+  // 把数组的数据 转成 树形数据
   factoryArrayData() {
+    // rootId 根节点的
     let data = this.state.treeArray, obj = {}, rootId = null;
     data.map((v, i) => {
       if (v[this.state.parentId] || v[this.state.parentId] === 0) {
@@ -77,6 +90,7 @@ class Tree extends Component {
           }
         }
       } else {
+        // pid是null的， 把它的id作为根节点
         rootId = v[this.state.id]
       }
       if (obj[v[this.state.id]]) {
@@ -84,6 +98,8 @@ class Tree extends Component {
       }
       obj[v[this.state.id]] = v
     })
+    console.log(obj[rootId])
+    console.log(obj)
     this.setState({
       treeData: obj[rootId],
       treeObj: obj
