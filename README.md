@@ -2,19 +2,21 @@
 效果图如下
 #### 多选
 
-![多选](https://raw.githubusercontent.com/YalongYan/react-tree/master/src/images/checkbox.gif?token=ACGVJW2RA3ZEUECACMAHHQK6BWJQG)
+![多选](https://raw.githubusercontent.com/YalongYan/react-tree/master/src/images/checkbox.gif)
 
 #### 单选
 
-![单选](https://raw.githubusercontent.com/YalongYan/react-tree/master/src/images/single.gif?token=ACGVJWZLKZXXYYKX2TNAMIC6BWJRG)
+![单选](https://raw.githubusercontent.com/YalongYan/react-tree/master/src/images/single.gif)
 
 for example:
-<Tree
+```<Tree
   config={ config }
   treeData={ treeData }
   selectChange={(data) => selectChange(data)}
   nodeClick={(data) => nodeClick(data)} />
+```
 Parameter description：
+```
   config: {
     type: 'tree', //必填 string 数据类型(tree || array) array是代表需要根据父子关系处理为树结构， tree是代表已经是树状结构，不需要处理
     parentId: 'pid', // type为array时，必填父级id的key
@@ -27,3 +29,5 @@ Parameter description：
  treeData // type为array时, treeData应该为array; type为tree时，treeData应该为object
  selectChange // 当checkBox为true时有效，返回选中的节点的value
  nodeClick // 点击元素时，返回点击的元素
+```
+
