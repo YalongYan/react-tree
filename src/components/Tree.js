@@ -5,7 +5,8 @@ import Stack from '../utils/util';
 class Tree extends Component {
   constructor(props) {
     super(props)
-    // 数的渲染用的是 treeData， treeArray， treeObj 是把treeData 的数据结构调整了下，由于浅复制的存在，修改任意一个，其他数据也会变
+    // 数的渲染用的是 treeData
+    // treeArray， treeObj 是把treeData 的数据结构调整了下，由于浅复制的存在，修改任意一个，其他数据也会变
     this.state = {
       treeData: {},
       treeArray: [],
@@ -89,6 +90,7 @@ class Tree extends Component {
     })
   }
 
+  // 把树形数据转成 一维对象类型 treeObj
   factoryTreeData() {
     let data = this.state.treeData
     let stack = new Stack();
