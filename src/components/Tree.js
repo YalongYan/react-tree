@@ -73,6 +73,7 @@ class Tree extends Component {
   }
 
   // 把数组的数据 转成 树形数据
+  // 巧妙利用浅复制
   factoryArrayData() {
     // rootId 根节点的
     let data = this.state.treeArray, obj = {}, rootId = null;
@@ -98,8 +99,6 @@ class Tree extends Component {
       }
       obj[v[this.state.id]] = v
     })
-    console.log(obj[rootId])
-    console.log(obj)
     this.setState({
       treeData: obj[rootId],
       treeObj: obj
