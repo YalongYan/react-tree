@@ -77,6 +77,7 @@ class Tree extends Component {
   factoryArrayData() {
     // rootId 根节点的
     let data = this.state.treeArray, obj = {}, rootId = null;
+    // console.log(data)
     data.map((v, i) => {
       if (v[this.state.parentId] || v[this.state.parentId] === 0) {
         if (obj[v[this.state.parentId]]) {
@@ -99,6 +100,8 @@ class Tree extends Component {
       }
       obj[v[this.state.id]] = v
     })
+    // console.log(obj[rootId])
+    // console.log(obj)
     this.setState({
       treeData: obj[rootId],
       treeObj: obj
@@ -108,6 +111,7 @@ class Tree extends Component {
   // 把树形数据转成 一维对象类型 treeObj
   factoryTreeData() {
     let data = this.state.treeData
+    // console.log(data)
     let stack = new Stack();
     let obj = {};
     stack.push(data);
@@ -118,6 +122,7 @@ class Tree extends Component {
       }
       obj[node[this.state.id]] = node
     }
+    // console.log(obj)
     this.setState({
       treeObj: obj
     })
