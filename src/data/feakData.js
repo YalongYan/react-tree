@@ -5,7 +5,7 @@ export const config = {
     id: 'id',
     value: 'value',
     label: 'label',
-    checkBox: true 
+    checkBox: false
 }
 
 // 这是树形数据结构

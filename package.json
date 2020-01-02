@@ -1,6 +1,6 @@
 {
-  "name": "react-tree-component-select",
-  "version": "1.0.2",
+  "name": "react-tree-select",
+  "version": "0.0.1",
   "description": "A Tree Component For React",
   "main": "lib/index.js",
   "scripts": {
