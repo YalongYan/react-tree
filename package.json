@@ -38,7 +38,7 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.6.0",
     "open-browser-webpack-plugin": "0.0.5",
-    "postcss": "^7.0.14",
+    "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
     "transfer-webpack-plugin": "^0.1.4",
